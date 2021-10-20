@@ -10,7 +10,6 @@ function OpenFSR(searchedParameterJson) {
     if (searchedParameterJson.currency === 'miles') {
         urlToOpen = env + 'ual/en/US/flight-search/book-a-flight/results/awd?id=1&taxng=1&at=1&';
     }
-	debugger;
     if (searchedParameterJson['date-period']) {
         var getFormatedFlexiDate = formatDate(searchedParameterJson.startDate)
         urlToOpen = env + 'ual/en/US/flight-search/book-a-flight/results/rev?st=bestmatches&taxng=1&tl=6&co=1&flxbl=1&fm=' + getFormatedFlexiDate + "&";

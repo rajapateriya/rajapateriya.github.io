@@ -109,6 +109,7 @@
 
         session.oncancel = event => {
             // Payment cancelled by WebKit
+		console.log('on cacnel', event);
         };
 
         session.begin();

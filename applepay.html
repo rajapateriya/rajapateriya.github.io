@@ -66,10 +66,10 @@
 //                     session.completeMerchantValidation(merchantSession);
 //                 }).catch(error => console.log(error));	
 			
-			makeRequest('GET', 'https://5095-223-236-55-242.ngrok.io/merchant-session/new', function (err, merchantSession) {
+			makeRequest('GET', 'https://47a4-223-236-55-242.ngrok.io/merchant-session/new', function (err, merchantSession) {
 			  if (err) { throw err; }
-				  merchantSession = JSON.parse(merchantSession);
-//     	            merchantSession = merchantSession['statusMessage'];
+				  merchantSession = JSON.parse(data);
+    	            merchantSession = merchantSession['statusMessage'];
 				  console.log(merchantSession);
 				  
 				  session.completeMerchantValidation(merchantSession);
@@ -109,7 +109,6 @@
 
         session.oncancel = event => {
             // Payment cancelled by WebKit
-		console.log('on cacnel', event);
         };
 
         session.begin();

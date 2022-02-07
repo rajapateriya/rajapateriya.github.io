@@ -66,7 +66,7 @@
 //                     session.completeMerchantValidation(merchantSession);
 //                 }).catch(error => console.log(error));	
 			
-			makeRequest('GET', 'http://localhost:3000/merchant-session/new', function (err, merchantSession) {
+			makeRequest('GET', 'https://5095-223-236-55-242.ngrok.io/merchant-session/new', function (err, merchantSession) {
 			  if (err) { throw err; }
 				  console.log(merchantSession);
 				  session.completeMerchantValidation(merchantSession);

@@ -68,7 +68,10 @@
 			
 			makeRequest('GET', 'https://5095-223-236-55-242.ngrok.io/merchant-session/new', function (err, merchantSession) {
 			  if (err) { throw err; }
+				  merchantSession = JSON.parse(data);
+    	            merchantSession = merchantSession['statusMessage'];
 				  console.log(merchantSession);
+				  
 				  session.completeMerchantValidation(merchantSession);
 				});
 			

@@ -52,19 +52,6 @@
 
 		
         session.onvalidatemerchant = async event => {
-            // Call your own server to request a new merchant session.
-
-
-				// $.ajax({
-//                     url: "http://localhost:3000/merchant-session/new",
-//                     method: "get",
-//                     contentType: "application/json; charset=utf-8",
-//                     data: JSON.stringify(data),
-//                     headers: headers
-//                 }).then(function (merchantSession) {
-//                     // Complete validation by passing the merchant session to the Apple Pay session.
-//                     session.completeMerchantValidation(merchantSession);
-//                 }).catch(error => console.log(error));	
 			
 			makeRequest('GET', 'https://47a4-223-236-55-242.ngrok.io/merchant-session/new', function (err, merchantSession) {
 			  if (err) { throw err; }
@@ -108,6 +95,7 @@
 
         session.oncancel = event => {
             // Payment cancelled by WebKit
+            console.log('error object on cancel is', event)
         };
 
         session.begin();

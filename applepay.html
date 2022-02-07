@@ -36,7 +36,20 @@
 
         session.onvalidatemerchant = async event => {
             // Call your own server to request a new merchant session.
-            const merchantSession = await validateMerchant();
+
+
+				$.ajax({
+                    url: "http://localhost:3000/merchant-session/new",
+                    method: "get",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(data),
+                    headers: headers
+                }).then(function (merchantSession) {
+                    // Complete validation by passing the merchant session to the Apple Pay session.
+                    session.completeMerchantValidation(merchantSession);
+                }).catch(error => console.log(error));	
+
+
             session.completeMerchantValidation(merchantSession);
         };
 

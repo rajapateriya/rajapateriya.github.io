@@ -33,7 +33,7 @@
         };
 
         // Create ApplePaySession
-        const session = new ApplePaySession(3, request);
+        const session = new ApplePaySession(10, request);
 
 
 		function makeRequest (method, url, done) {
@@ -68,7 +68,11 @@
         session.onpaymentmethodselected = event => {
             // Define ApplePayPaymentMethodUpdate based on the selected payment method.
             // No updates or errors are needed, pass an empty object.
-            const update = {};
+//             const update = {};
+		var update = {
+			newTotal: request["total"],
+			newLineItems: request["lineItems"]
+		};
             session.completePaymentMethodSelection(update);
         };
 
